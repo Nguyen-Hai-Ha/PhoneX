@@ -17,9 +17,9 @@
                     <Icon name="lucide:shopping-bag" />
                     <span class="badge-mono" v-if="cartStore.cartCount > 0">{{ cartStore.cartCount }}</span>
                 </NuxtLink>
-                <button class="icon-btn-mono theme-toggle" @click="toggleTheme">
+                <!-- <button class="icon-btn-mono theme-toggle" @click="toggleTheme">
                     <Icon :name="isDark ? 'lucide:sun' : 'lucide:moon'" />
-                </button>
+                </button> -->
             </div>
         </div>
     </header>

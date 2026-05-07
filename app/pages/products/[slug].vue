@@ -244,7 +244,7 @@ watch(() => currentVariant.value, (newVariant) => {
                         <div class="color-options">
                             <button v-for="c in availableColors" :key="c.id"
                                 :class="{ active: selectedColor === c.color }" @click="selectedColor = c.color"
-                                class="color-btn">
+                                class="color-options-btn">
                                 <div class="color-preview"><img :src="c.imageUrl" :alt="c.color" /></div>
                                 <div class="color-info">
                                     <span class="color-name">{{ c.color }}</span>

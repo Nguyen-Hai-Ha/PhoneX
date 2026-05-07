@@ -452,10 +452,29 @@
     position: relative;
 }
 
+.color-options-btn {
+    border: 2px solid var(--cs-border);
+    border-radius: 12px;
+    padding: 12px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
 .color-btn.active {
     border-color: var(--text-color);
     background: var(--text-color);
     color: var(--cs-bg);
+}
+
+.color-options-btn.active {
+    border-color: #d70018;
+    color: var(--text-color);
 }
 
 [data-theme="dark"] .color-btn.active {
