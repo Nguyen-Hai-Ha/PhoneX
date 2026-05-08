@@ -220,11 +220,11 @@
 
 .thumb-scroll-btn {
     width: 36px;
-    height: 80px;
+    height: 36px;
     flex-shrink: 0;
     background: white;
     border: 1px solid var(--cs-border);
-    border-radius: 8px;
+    border-radius: 50%;
     font-size: 1.8rem;
     cursor: pointer;
     transition: 0.3s;
@@ -234,7 +234,7 @@
 }
 
 .thumb-scroll-btn:hover {
-    background: var(--cs-accent);
+    box-shadow: 0 0 0 2px var(--glass-border);
 }
 
 .thumb-scroll-btn:disabled {
@@ -268,7 +268,7 @@
 .icon-badge {
     width: 32px;
     height: 32px;
-    background: var(--text-color);
+    background: #d70018;
     color: var(--cs-bg);
     border-radius: 50%;
     display: flex;
@@ -426,14 +426,14 @@
 }
 
 .variant-btn:hover,
+.color-options-btn:hover,
 .color-btn:hover {
-    border-color: var(--text-color);
+    border-color: #d70018;
 }
 
 .variant-btn.active {
-    border-color: var(--text-color);
-    background: var(--text-color);
-    color: var(--cs-bg);
+    border-color: #d70018;
+    color: var(--text-color);
 }
 
 [data-theme="dark"] .variant-btn.active {
@@ -596,19 +596,19 @@
     padding: 16px;
     font-weight: 900;
     font-size: 0.9rem;
-    border: 1px solid var(--text-color);
+    border: 1px solid #d70018;
     border-radius: 12px;
 }
 
 .btn-buy-now {
-    background: var(--text-color);
+    background: #d70018;
     color: var(--cs-bg);
 }
 
 .btn-installment,
 .btn-add-cart {
     background: transparent;
-    color: var(--cs-text);
+    color: #d70018;
 }
 
 .btn-buy-now:hover {
@@ -617,7 +617,7 @@
 
 .btn-installment:hover,
 .btn-add-cart:hover {
-    background: var(--text-color);
+    background: #d70018;
     color: var(--cs-bg);
 }
 
