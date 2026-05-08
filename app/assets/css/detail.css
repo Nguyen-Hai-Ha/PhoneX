@@ -186,11 +186,11 @@
 }
 
 .thumb-item:hover {
-    border-color: var(--cs-accent);
+    border-color: #d70018;
 }
 
 .thumb-item.active {
-    border-color: var(--cs-accent);
+    border-color: #d70018;
     border-width: 2px;
 }
 
@@ -313,7 +313,8 @@
 }
 
 .cs-price-box {
-    border: 1px solid var(--text-color);
+    border: 1px solid #80affb;
+    background-color: #f1f6ff;
     border-radius: 12px;
     padding: 20px;
     font-weight: 100
@@ -339,7 +340,7 @@
 
 .price-main {
     font-size: 1.75rem;
-    font-weight: 900;
+    font-weight: 700;
     color: #d70018;
 }
 
@@ -351,7 +352,7 @@
 
 .price-promo {
     font-size: 1.5rem;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .promo-note {
