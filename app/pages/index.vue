@@ -22,6 +22,17 @@ const groupedProducts = computed(() => {
     })
     return groups
 })
+
+// SEO Meta
+useSeoMeta({
+    title: 'PhoneX - Cửa hàng điện thoại uy tín',
+    description: 'PhoneX - Cửa hàng điện thoại uy tín, chất lượng, giá rẻ',
+    ogTitle: 'PhoneX - Cửa hàng điện thoại uy tín',
+    ogDescription: 'PhoneX - Cửa hàng điện thoại uy tín, chất lượng, giá rẻ',
+    ogImage: '/images/logo/logo.jpg',
+    ogUrl: 'https://hhpas.asia',
+    ogType: 'website',
+})
 </script>
 
 <template>
