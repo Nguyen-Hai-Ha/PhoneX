@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   srcDir: 'app/',
   devtools: { enabled: true },
 
-  modules: ['nuxt-swiper', '@nuxtjs/robots', '@pinia/nuxt', '@nuxt/icon'],
+  modules: ['nuxt-swiper', '@nuxtjs/robots', '@pinia/nuxt', '@nuxt/icon', '@nuxtjs/sitemap', '@nuxt/image' ],
   css: ['~/assets/css/main.css'],
 
   swiper: {
@@ -53,6 +53,17 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ]
+    }
+  },
+
+  sitemap: {
+    hostname: 'https://yourdomain.com',
+    urls: async () => {
+        const products = await $fetch('/api/products')
+        return products.data.map(p => ({
+            loc: `/products/${p.slug}`,
+            lastmod: p.updatedAt,
+        }))
     }
   }
 })
