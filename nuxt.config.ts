@@ -38,5 +38,21 @@ export default defineNuxtConfig({
   
   runtimeConfig: {
     databaseUrl: process.env.DATABASE_URL
+  },
+
+  app: {
+    head: {
+      htmlAttrs: { lang: 'vi' },
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1.0',
+      meta: [
+        { name: 'theme-color', content: '#d70018' },
+        { property: 'og:site_name', content: 'PhoneX' },
+        { property: 'og:locale', content: 'vi_VN' },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      ]
+    }
   }
 })
