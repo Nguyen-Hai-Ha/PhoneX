@@ -3,6 +3,7 @@ import { useProductStore } from '~/stores/product'
 
 const route = useRoute()
 const slug = route.params.slug as string
+const fullPath = route.params.slug
 
 const productStore = useProductStore()
 const { product, loading, storageOptions,
@@ -83,6 +84,17 @@ watch(() => currentVariant.value, (newVariant) => {
     if (newVariant?.imageUrl) {
         currentImage.value = newVariant.imageUrl
     }
+})
+
+// SEO Meta
+useSeoMeta({
+    title: () => product.value?.name,
+    description: () => product.value?.description,
+    ogTitle: () => product.value?.name,
+    ogDescription: () => product.value?.description,
+    ogImage: () => product.value?.image_url,
+    ogUrl: () => `https://hhpas.asia/${fullPath}`,
+    ogType: 'website',
 })
 
 </script>
