@@ -7,12 +7,11 @@
             <!-- Brand Logo (Authorized Reseller Style) -->
             <div class="brand-auth">
                 <!-- Ideally this logo would also come from DB or be derived from brand name -->
-                <img :src="product.category.image_url" :alt="product.category.name"
-                    class="auth-logo" />
+                <NuxtImg :src="product.category.image_url" :alt="product.category.name" loading="lazy" format="webp" class="auth-logo" />
             </div>
 
             <div class="image-section">
-                <img :src="product.image_url" :alt="product.name" class="main-image" />
+                <NuxtImg :src="product.image_url" :alt="product.name" class="main-image" loading="lazy" format="webp" />
             </div>
 
             <div class="info-section">

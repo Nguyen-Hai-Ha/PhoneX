@@ -68,7 +68,7 @@ useSeoMeta({
                     :class="{ active: selectedCategoryId === cat.id }"
                     @click="selectedCategoryId = (selectedCategoryId === cat.id ? null : cat.id)">
                     <div class="cat-logo-wrapper">
-                        <img v-if="cat.image_url" :src="cat.image_url" :alt="cat.name" class="cat-logo" />
+                        <NuxtImg v-if="cat.image_url" :src="cat.image_url" :alt="cat.name" class="cat-logo" loading="lazy" format="webp" />
                         <Icon v-else name="lucide:image-off" class="placeholder-icon" />
                     </div>
                 </div>

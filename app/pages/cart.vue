@@ -27,7 +27,7 @@ const formatPrice = (price) => {
                 <div class="cart-items">
                     <div v-for="item in items" :key="item.id" class="cart-item">
                         <div class="item-image">
-                            <img :src="item.image" :alt="item.name" />
+                            <NuxtImg :src="item.image" :alt="item.name" loading="lazy" format="webp" />
                         </div>
                         <div class="item-info">
                             <h3 class="item-name">

@@ -215,7 +215,7 @@ useHead({
                     <div class="cs-image-block">
                         <div class="cs-main-image">
                             <!-- <button class="nav-arrow nav-left">‹</button> -->
-                            <img :src="currentImage || product.image_url" :alt="product.name" />
+                            <NuxtImg :src="currentImage || product.image_url" :alt="product.name" loading="lazy" format="webp" />
                             <!-- <button class="nav-arrow nav-right">›</button> -->
                         </div>
 
@@ -234,7 +234,7 @@ useHead({
                                 <div v-for="(img, index) in product.images" :key="img.id" class="thumb-item"
                                     :class="{ active: currentImage === img.url }"
                                     @click="selectThumbnail(img.url, index)">
-                                    <img :src="img.url" :alt="img.alt" />
+                                    <NuxtImg :src="img.url" :alt="img.alt" loading="lazy" format="webp" />
                                 </div>
                             </div>
 
@@ -330,7 +330,7 @@ useHead({
                             <button v-for="c in availableColors" :key="c.id"
                                 :class="{ active: selectedColor === c.color }" @click="selectedColor = c.color"
                                 class="color-options-btn">
-                                <div class="color-preview"><img :src="c.imageUrl" :alt="c.color" /></div>
+                                <div class="color-preview"><NuxtImg :src="c.imageUrl" :alt="c.color" loading="lazy" format="webp" /></div>
                                 <div class="color-info">
                                     <span class="color-name">{{ c.color }}</span>
                                     <span class="color-price">{{ formatPrice(c.price) }}</span>
