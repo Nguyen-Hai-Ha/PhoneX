@@ -48,6 +48,15 @@ const activeCategoryName = computed(() => {
     if (!selectedCategoryId.value) return "Tất cả sản phẩm"
     return categories.value.find(c => c.id === selectedCategoryId.value)?.name || "Danh mục"
 })
+
+useSeoMeta({
+    title: 'Tat ca san pham - PhoneX',
+    description: 'Kham pha hang tram mau dien thoai chinh hang tai PhoneX.',
+    ogTitle: 'Tat ca san pham - PhoneX',
+    ogDescription: 'Kham pha hang tram mau dien thoai chinh hang tai PhoneX.',
+    ogUrl: 'https://hhpas.asia/products',
+    ogType: 'website',
+})
 </script>
 
 <template>
