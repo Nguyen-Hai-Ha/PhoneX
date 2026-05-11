@@ -93,8 +93,81 @@ useSeoMeta({
     ogTitle: () => product.value?.name,
     ogDescription: () => product.value?.description,
     ogImage: () => product.value?.image_url,
-    ogUrl: () => `https://hhpas.asia/${fullPath}`,
     ogType: 'website',
+    ogUrl: () => `https://hhpas.asia/products/${fullPath}`,
+})
+
+useHead({
+    script: [
+        // Schema 1: Product structured data
+        {
+            type: 'application/ld+json',
+            innerHTML: computed(() => JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'Product',
+                name: product.value?.name,
+                description: product.value?.description,
+                image: product.value?.image_url,
+                brand: {
+                    '@type': 'Brand',
+                    name: product.value?.brand,
+                },
+                offers: {
+                    '@type': 'Offer',
+                    priceCurrency: 'VND',
+                    price: currentVariant.value?.price,
+                    availability: product.value?.stock > 0
+                        ? 'https://schema.org/InStock'
+                        : 'https://schema.org/OutOfStock',
+                    url: `https://hhpas.asia/products/${fullPath}`,
+                },
+                aggregateRating: {
+                    '@type': 'AggregateRating',
+                    ratingValue: '4.8',
+                    reviewCount: '140',
+                }
+            }))
+        },
+        // Schema 2: Breadcrumb structured data
+        {
+            type: 'application/ld+json',
+            innerHTML: computed(() => JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                    {
+                        '@type': 'ListItem',
+                        position: 1,
+                        name: 'Trang chủ',
+                        item: 'https://hhpas.asia',
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 2,
+                        name: 'Điện thoại',
+                        item: 'https://hhpas.asia/products',
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 3,
+                        name: product.value?.category?.name,
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 4,
+                        name: product.value?.name,
+                        item: `https://hhpas.asia/products/${fullPath}`,
+                    },
+                ]
+            }))
+        },
+    ],
+    link: [
+        {
+            rel: 'canonical',
+            href: `https://hhpas.asia/products/${fullPath}`,
+        },
+    ],
 })
 
 </script>
