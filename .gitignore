@@ -26,4 +26,6 @@ public/images/**
 .env.*
 !.env.example
 
+/PhoneX.zip
+
 /app/generated/prisma
