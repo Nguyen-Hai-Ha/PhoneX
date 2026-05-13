@@ -180,6 +180,35 @@ model ProductAnswer {
   @@map("product_answer")
 }
 
+model ProductReview {
+  id        Int      @id @default(autoincrement())
+  rating    Int
+  content   String   @db.VarChar(5000)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  productId Int
+  product   Product @relation(fields: [productId], references: [id])
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
+
+  @@map("product_review")
+}
+
+model ImageReview {
+  id        Int      @id @default(autoincrement())
+  url       String   
+  alt       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reviewId Int
+  review   ProductReview @relation(fields: [reviewId], references: [id])
+
+  @@map("image_review")
+}
+
 // Enum cho các bảng
 enum ProductStatus {
   ACTIVE
