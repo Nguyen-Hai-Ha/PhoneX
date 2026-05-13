@@ -209,6 +209,47 @@ model ImageReview {
   @@map("image_review")
 }
 
+model Oder {
+  id             Int      @id @default(autoincrement())
+  discount_total Int   @default(0)
+  delivery_cost  Int   @default(0)
+  grand_total    Int   @default(0)
+  payment_method String
+  status         String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
+
+  promotionId Int?
+  promotion   Promotion? @relation(fields: [promotionId], references: [id])
+
+  @@map("oder")
+}
+
+model Promotion {
+  id               Int      @id @default(autoincrement())
+  name             String
+  code             String   @unique
+  discount         Int      @default(0)
+  discount_type    String   @default("PERCENT") //PERCENT, FLAT
+  start_date       DateTime 
+  end_date         DateTime 
+  min_order        Int      @default(0)
+  status           Boolean  @default(true)   
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  oders Oder[]
+
+  @@map("promotion")
+}
+
+model OderDetal {
+  
+}
+
 // Enum cho các bảng
 enum ProductStatus {
   ACTIVE
