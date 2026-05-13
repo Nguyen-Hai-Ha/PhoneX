@@ -26,7 +26,7 @@ export default defineNuxtConfig({
       }
     },
     prerender: {
-      routes: ['/sitemap.xml', '/robots.txt']
+      routes: ['/sitemap.xml', 'public/robots.txt']
     },
     externals: {
       external: ['@prisma/client', '.prisma/client']
@@ -56,14 +56,14 @@ export default defineNuxtConfig({
     }
   },
 
-  sitemap: {
-    hostname: 'https://yourdomain.com',
-    urls: async () => {
-        const products = await $fetch('/api/products')
-        return products.data.map(p => ({
-            loc: `/products/${p.slug}`,
-            lastmod: p.updatedAt,
-        }))
-    }
-  }
+  // sitemap: {
+  //   hostname: 'https://yourdomain.com',
+  //   urls: async () => {
+  //       const products = await $fetch('/api/products')
+  //       return products.data.map(p => ({
+  //           loc: `/products/${p.slug}`,
+  //           lastmod: p.updatedAt,
+  //       }))
+  //   }
+  // }
 })
