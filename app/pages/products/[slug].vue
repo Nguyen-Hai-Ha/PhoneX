@@ -330,7 +330,7 @@ useHead({
                             <button v-for="c in availableColors" :key="c.id"
                                 :class="{ active: selectedColor === c.color }" @click="selectedColor = c.color"
                                 class="color-options-btn">
-                                <div class="color-preview"><NuxtImg :src="c.imageUrl" :alt="c.color" loading="lazy" format="webp" /></div>
+                                <div class="color-preview"><NuxtImg :src="c.image_url" :alt="c.color" loading="lazy" format="webp" /></div>
                                 <div class="color-info">
                                     <span class="color-name">{{ c.color }}</span>
                                     <span class="color-price">{{ formatPrice(c.price) }}</span>
