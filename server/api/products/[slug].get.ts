@@ -11,19 +11,7 @@ export default defineEventHandler(async (event) => {
                 tags: true,
                 images: true,
                 variants: true,
-                comments: {
-                    include: {
-                        user: {
-                            select: {
-                                name: true,
-                                email: true,
-                            },
-                        },
-                    },
-                    orderBy: {
-                        createdAt: 'desc',
-                    },
-                },
+
             },
         })
 

@@ -3,7 +3,11 @@ export default defineEventHandler(async (event) => {
         const products = await prisma.product.findMany({
             include: {
                 category: true,
-                variants: true
+                variants: {
+                    orderBy: {
+                        storage: 'asc',
+                    },
+                }
             }
         })
         return {
