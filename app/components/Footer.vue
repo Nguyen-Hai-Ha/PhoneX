@@ -36,7 +36,7 @@
           <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
           <form class="newsletter-form" @submit.prevent>
             <input type="email" placeholder="Enter your email" required />
-            <button type="submit" class="btn btn-primary">Join</button>
+            <button type="submit" class="btn btn-primary" aria-label="tham gia">Join</button>
           </form>
         </div>
       </div>

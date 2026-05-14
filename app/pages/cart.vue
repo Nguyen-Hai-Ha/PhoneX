@@ -44,11 +44,11 @@ const formatPrice = (price) => {
                         <div class="item-actions">
                             <div class="quantity-control">
                                 <button @click="updateQuantity(item.id, item.quantity - 1)"
-                                    :disabled="item.quantity <= 1">-</button>
+                                    :disabled="item.quantity <= 1" aria-label="giảm số lượng">-</button>
                                 <input type="number" :value="item.quantity" readonly />
-                                <button @click="updateQuantity(item.id, item.quantity + 1)">+</button>
+                                <button @click="updateQuantity(item.id, item.quantity + 1)" aria-label="tăng số lượng">+</button>
                             </div>
-                            <button class="btn-remove" @click="removeFromCart(item.id)">
+                            <button class="btn-remove" @click="removeFromCart(item.id)" aria-label="xóa sản phẩm">
                                 <Icon name="lucide:trash-2" />
                             </button>
                         </div>
@@ -68,7 +68,7 @@ const formatPrice = (price) => {
                             <span class="total-price">{{ formatPrice(cartTotal) }}</span>
                         </div>
                         <p class="vat-note">(Đã bao gồm VAT nếu có)</p>
-                        <button class="btn-checkout">Tiến hành thanh toán</button>
+                        <button class="btn-checkout" aria-label="tiến hành thanh toán">Tiến hành thanh toán</button>
                     </div>
                 </div>
             </div>

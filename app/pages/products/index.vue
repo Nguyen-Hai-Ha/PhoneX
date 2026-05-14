@@ -87,7 +87,7 @@ useSeoMeta({
 
                     <!-- Filter & Sort Buttons -->
                     <div class="action-buttons">
-                        <button class="btn-action">
+                        <button class="btn-action" aria-label="bộ lọc">
                             <Icon name="lucide:sliders-horizontal" />
                             Bộ lọc
                         </button>
@@ -111,8 +111,7 @@ useSeoMeta({
             <div v-else class="no-results">
                 <Icon name="lucide:box-select" class="empty-icon" />
                 <p>Nội dung đang được cập nhật. Vui lòng quay lại sau!</p>
-                <button class="btn btn-primary btn-sm mt-3" @click="selectedCategoryId = null; search = ''">Xem tất
-                    cả</button>
+                <button class="btn btn-primary btn-sm mt-3" @click="selectedCategoryId = null; search = ''" aria-label="xem tất cả">Xem tất cả</button>
             </div>
         </div>
     </div>

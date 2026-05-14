@@ -1,7 +1,9 @@
 <template>
     <header class="header-mono glass">
         <div class="container header-wrap">
-            <NuxtLink to="/" class="logo-mono">PHONEX</NuxtLink>
+            <NuxtLink to="/" class="logo-mono">
+                <NuxtImg src="/images/logo/logo-rb.png" alt="Logo" width="80" height="80" />
+            </NuxtLink>
 
             <nav class="nav-mono">
                 <NuxtLink to="/">HOME</NuxtLink>
@@ -10,10 +12,10 @@
             </nav>
 
             <div class="actions-mono">
-                <button class="icon-btn-mono">
+                <button class="icon-btn-mono" aria-label="Tìm kiếm">
                     <Icon name="lucide:search" />
                 </button>
-                <NuxtLink to="/cart" class="icon-btn-mono relative">
+                <NuxtLink to="/cart" class="icon-btn-mono relative" aria-label="Giỏ hàng">
                     <Icon name="lucide:shopping-bag" />
                     <span class="badge-mono" v-if="cartStore.cartCount > 0">{{ cartStore.cartCount }}</span>
                 </NuxtLink>

@@ -180,15 +180,15 @@ useHead({
 
         <div v-else-if="!product" class="error-screen">
             <h1>Sản phẩm không tồn tại</h1>
-            <NuxtLink to="/" class="btn-back">Quay lại trang chủ</NuxtLink>
+            <NuxtLink to="/" class="btn-back" aria-label="quay lại trang chủ">Quay lại trang chủ</NuxtLink>
         </div>
 
         <div v-else class="cs-container">
             <!-- Breadcrumbs -->
             <nav class="cs-breadcrumb">
-                <NuxtLink to="/">Trang chủ</NuxtLink> /
-                <NuxtLink to="/">Điện thoại</NuxtLink> /
-                <NuxtLink to="/">{{ product.category?.name }}</NuxtLink> /
+                <NuxtLink to="/" aria-label="trang chủ">Trang chủ</NuxtLink> /
+                <NuxtLink to="/products" aria-label="điện thoại">Điện thoại</NuxtLink> /
+                <NuxtLink :to="`/products/category/${product.category?.id}`" aria-label="danh mục sản phẩm">{{ product.category?.name }}</NuxtLink> /
                 <span>{{ product.name }}</span>
             </nav>
 
@@ -221,7 +221,7 @@ useHead({
 
                         <!-- Thumbnails Carousel -->
                         <div class="cs-thumbs-wrapper">
-                            <button class="thumb-scroll-btn scroll-left" @click="scrollCarousel('left')">‹</button>
+                            <button class="thumb-scroll-btn scroll-left" @click="scrollCarousel('left')" aria-label="cuộn sang trái">‹</button>
 
                             <div ref="thumbsCarousel" class="cs-thumbs-carousel">
                                 <!-- Featured Thumbnail -->
@@ -238,7 +238,7 @@ useHead({
                                 </div>
                             </div>
 
-                            <button class="thumb-scroll-btn scroll-right" @click="scrollCarousel('right')">›</button>
+                            <button class="thumb-scroll-btn scroll-right" @click="scrollCarousel('right')" aria-label="cuộn sang phải">›</button>
                         </div>
                     </div>
 
@@ -317,7 +317,7 @@ useHead({
                         <h4 class="selector-label">Phiên bản</h4>
                         <div class="variant-options">
                             <button v-for="v in storageOptions" :key="v" class="variant-btn"
-                                :class="{ active: selectedStorage === v }" @click="selectedStorage = v">
+                                :class="{ active: selectedStorage === v }" @click="selectedStorage = v" :aria-label="'chọn phiên bản ' + v">
                                 {{ v }}
                             </button>
                         </div>
@@ -329,7 +329,7 @@ useHead({
                         <div class="color-options">
                             <button v-for="c in availableColors" :key="c.id"
                                 :class="{ active: selectedColor === c.color }" @click="selectedColor = c.color"
-                                class="color-options-btn">
+                                class="color-options-btn" :aria-label="'chọn màu ' + c.color">
                                 <div class="color-preview"><NuxtImg :src="c.image_url" :alt="c.color" loading="lazy" format="webp" /></div>
                                 <div class="color-info">
                                     <span class="color-name">{{ c.color }}</span>
@@ -384,8 +384,8 @@ useHead({
 
                     <!-- Action Buttons -->
                     <div class="cs-actions">
-                        <button class="btn-buy-now">MUA NGAY</button>
-                        <button class="btn-add-cart" @click="handleAddToCart">
+                        <button class="btn-buy-now" aria-label="mua ngay">MUA NGAY</button>
+                        <button class="btn-add-cart" @click="handleAddToCart" aria-label="thêm vào giỏ">
                             <Icon name="mdi:cart" /> Thêm vào giỏ
                         </button>
                     </div>
