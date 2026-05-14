@@ -2,7 +2,7 @@
   <div class="product-card">
     <NuxtLink :to="`/products/${product.slug}`">
       <div class="product-image-wrapper">
-        <NuxtImg :src="product.image_url" :alt="product.name" class="product-image" loading="lazy" format="webp" />
+        <NuxtImg :src="product.image_url" :alt="product.name" class="product-image" loading="eager" format="webp" fetchpriority="high" width="320" height="320"/>
       </div>
     </NuxtLink>
     <div class="product-info">

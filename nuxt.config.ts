@@ -45,6 +45,11 @@ export default defineNuxtConfig({
     databaseUrl: process.env.DATABASE_URL
   },
 
+  routeRules: {
+    '/image/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
+    '/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } }
+  },
+
   app: {
     head: {
       htmlAttrs: { lang: 'vi' },

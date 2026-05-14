@@ -64,27 +64,12 @@ const handleAddToCart = () => {
 
 // Current displayed image
 const currentImage = ref('')
-const selectedThumbIndex = ref(0)
-
-// Initialize current image when product loads
-watch(() => product.value, (newProduct) => {
-    if (newProduct?.image_url) {
-        currentImage.value = newProduct.image_url
-    }
-}, { immediate: true })
 
 // Handle thumbnail click
-const selectThumbnail = (imageUrl: string, index: number) => {
+const selectThumbnail = (imageUrl: string) => {
     currentImage.value = imageUrl
-    selectedThumbIndex.value = index
 }
 
-// Watch color selection to update main image
-watch(() => currentVariant.value, (newVariant) => {
-    if (newVariant?.imageUrl) {
-        currentImage.value = newVariant.imageUrl
-    }
-})
 
 // SEO Meta
 useSeoMeta({
@@ -215,7 +200,7 @@ useHead({
                     <div class="cs-image-block">
                         <div class="cs-main-image">
                             <!-- <button class="nav-arrow nav-left">‹</button> -->
-                            <NuxtImg :src="currentImage || product.image_url" :alt="product.name" loading="lazy" format="webp" />
+                            <NuxtImg :src="currentImage || product.image_url" :alt="product.name" loading="eager" format="webp" fetchpriority="high" width="200" height="200"/>
                             <!-- <button class="nav-arrow nav-right">›</button> -->
                         </div>
 
@@ -233,8 +218,8 @@ useHead({
                                 <!-- Product Images - Show ALL -->
                                 <div v-for="(img, index) in product.images" :key="img.id" class="thumb-item"
                                     :class="{ active: currentImage === img.url }"
-                                    @click="selectThumbnail(img.url, index)">
-                                    <NuxtImg :src="img.url" :alt="img.alt" loading="lazy" format="webp" />
+                                    @click="selectThumbnail(img.url)">
+                                    <NuxtImg :src="img.url" :alt="img.alt" loading="eager" format="webp" fetchpriority="high" width="80" height="80"/>
                                 </div>
                             </div>
 
@@ -328,14 +313,18 @@ useHead({
                         <h4 class="selector-label">Màu sắc</h4>
                         <div class="color-options">
                             <button v-for="c in availableColors" :key="c.id"
-                                :class="{ active: selectedColor === c.color }" @click="selectedColor = c.color"
+                                :class="{ active: selectedColor === c.color }" @click="selectedColor = c.color; selectThumbnail(c.image_url)"
                                 class="color-options-btn" :aria-label="'chọn màu ' + c.color">
-                                <div class="color-preview"><NuxtImg :src="c.image_url" :alt="c.color" loading="lazy" format="webp" /></div>
+
+                                <div class="color-preview">
+                                    <NuxtImg :src="c.image_url" :alt="c.color" loading="eager" format="webp" fetchpriority="high" width="40" height="40"/>
+                                </div>
                                 <div class="color-info">
                                     <span class="color-name">{{ c.color }}</span>
                                     <span class="color-price">{{ formatPrice(c.price) }}</span>
                                 </div>
                                 <div class="badge-hot">🔥</div>
+
                             </button>
                         </div>
                     </div>
