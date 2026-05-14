@@ -20,7 +20,7 @@ export const useProductStore = defineStore('product', () => {
         loading.value = true
         try {
             const { data } = await useFetch(`/api/products/${slug}`)
-            product.value = data.value?.data || []
+            product.value = data.value?.data || null
 
             // Auto-select first storage and color after fetching
             if (product.value && product.value.variants?.length > 0) {
@@ -41,24 +41,30 @@ export const useProductStore = defineStore('product', () => {
 
     // 1. Lấy danh sách Dung lượng duy nhất (Unique Storage)
     const storageOptions = computed(() => {
-        if (!product.value) return []
+        if (!product.value || !product.value.variants) return []
         // Lấy tất cả storage, sau đó dùng Set để loại bỏ trùng lặp
         const allStorages = product.value.variants.map(v => v.storage)
         return [...new Set(allStorages)]
     })
 
     // 2. State để lưu lựa chọn hiện tại của người dùng
-    const selectedStorage = ref(storageOptions.value[0]) // Mặc định chọn cái đầu tiên
+    const selectedStorage = ref() // Mặc định chọn cái đầu tiên
+    watch(storageOptions, (newOptions) => {
+        if (newOptions.length > 0 && !selectedStorage.value) {
+            selectedStorage.value = newOptions[0]
+        }
+    })
     const selectedColor = ref(null)
 
     // 3. Lọc ra các màu tương ứng với dung lượng đang chọn
     const availableColors = computed(() => {
-        if (!product.value || !selectedStorage.value) return []
+        if (!product.value || !selectedStorage.value || !product.value.variants) return []
         return product.value.variants.filter(v => v.storage === selectedStorage.value)
     })
 
     // 4. Tìm biến thể (Variant) cuối cùng để lấy GIÁ
     const currentVariant = computed(() => {
+        if (!product.value || !selectedStorage.value || !selectedColor.value || !product.value.variants) return null
         return product.value.variants.find(
             v => v.storage === selectedStorage.value && v.color === selectedColor.value
         )
