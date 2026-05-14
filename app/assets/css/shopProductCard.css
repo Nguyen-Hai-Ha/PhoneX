@@ -1,0 +1,223 @@
+.shop-product-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #f2f2f2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    position: relative;
+}
+
+.shop-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 15px;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Badge & Auth */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #d70018;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.brand-auth {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: right;
+    z-index: 2;
+}
+
+.auth-logo {
+    height: 12px;
+    display: block;
+    margin-left: auto;
+    margin-bottom: 2px;
+}
+
+.auth-text {
+    font-size: 9px;
+    color: #888;
+}
+
+.image-section {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.main-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #333;
+    min-height: 2.8em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Banner */
+.promo-banner {
+    background: #d70018;
+    color: #fff;
+    padding: 5px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.promo-item {
+    text-align: center;
+}
+
+.promo-label {
+    font-size: 0.55rem;
+    display: block;
+    opacity: 0.8;
+}
+
+.promo-value {
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.promo-divider {
+    font-size: 1.2rem;
+    opacity: 0.4;
+}
+
+/* Prices */
+.price-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tag-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.current-price {
+    color: #d70018;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.old-price {
+    font-size: 0.8rem;
+    text-decoration: line-through;
+    color: #999;
+}
+
+.prepaid {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.prepaid span {
+    color: #d70018;
+    font-weight: 600;
+}
+
+.rating-row {
+    margin-top: auto;
+}
+
+.star-icon {
+    font-size: 0.8rem;
+    color: #f59e0b;
+}
+
+
+/* CAROUSEL */
+.horizontal-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 24px;
+    padding: 10px 20px 30px 20px;
+    /* More padding for a cleaner look */
+    scroll-behavior: auto;
+    /* Use auto for JS-controlled smooth scrolling */
+    scrollbar-width: none;
+    /* Hide for Firefox */
+    -ms-overflow-style: none;
+    /* Hide for IE/Edge */
+}
+
+/* Hide scrollbar for Chrome/Safari/Opera */
+.horizontal-scroll-container::-webkit-scrollbar {
+    height: 3px;
+    /* Very thin and modern */
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin: 0 25%;
+    /* Heavily inset for a centered 'floating' look */
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.scroll-item {
+    min-width: 300px;
+    /* Slightly wider cards for better breathing room */
+    max-width: 300px;
+    flex-shrink: 0;
+}
+
+/* Smooth fade effect on edges */
+.horizontal-scroll-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to left, var(--bg-color, #000), transparent);
+}
