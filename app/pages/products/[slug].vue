@@ -229,7 +229,7 @@ useHead({
 
                     <!-- Commitment Cards -->
                     <div class="cs-commitment-section">
-                        <h3 class="section-label">Cam kết sản phẩm</h3>
+                        <h4 class="section-label">Cam kết sản phẩm</h4>
                         <div class="commitment-grid">
                             <div class="commitment-card">
                                 <div class="icon-badge">1</div>
@@ -252,7 +252,7 @@ useHead({
 
                     <!-- Tech Specs -->
                     <div class="cs-specs-section">
-                        <h3 class="section-label">Thông số kỹ thuật</h3>
+                        <h4 class="section-label">Thông số kỹ thuật</h4>
                         <div class="specs-table">
                             <div v-for="(spec, i) in specs" :key="i" class="spec-row">
                                 <div class="spec-key">{{ spec.label }}</div>

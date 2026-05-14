@@ -46,7 +46,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/image/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
+    '/images/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
     '/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } }
   },
 
