@@ -50,7 +50,7 @@ useSeoMeta({
                     </div>
                 </div>
                 <div class="hero-image-container">
-                    <NuxtImg src="/images/products/iphone17banner.png" alt="PhoneX Ultimate" class="hero-image" format="webp" loading="lazy" />
+                    <NuxtImg src="/images/products/iphone17banner.webp" alt="PhoneX Ultimate" class="hero-image" format="webp" loading="lazy" />
                 </div>
             </div>
         </section>

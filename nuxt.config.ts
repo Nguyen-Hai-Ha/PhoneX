@@ -2,6 +2,11 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   srcDir: 'app/',
+  // vite: {
+  //   server: {
+  //     allowedHosts: ['localhost:3000']
+  //   }
+  // },
   devtools: { enabled: true },
 
   modules: ['nuxt-swiper', '@nuxtjs/robots', '@pinia/nuxt', '@nuxt/icon', '@nuxtjs/sitemap', '@nuxt/image' ],
