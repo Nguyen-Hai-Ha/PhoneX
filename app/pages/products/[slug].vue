@@ -116,7 +116,7 @@ useHead({
                     '@type': 'Offer',
                     priceCurrency: 'VND',
                     price: currentVariant.value?.price,
-                    availability: product.value?.stock > 0
+                    availability: product.value?.status === 'ACTIVE'
                         ? 'https://schema.org/InStock'
                         : 'https://schema.org/OutOfStock',
                     url: `https://hhpas.asia/products/${fullPath}`,

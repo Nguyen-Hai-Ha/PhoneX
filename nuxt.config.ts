@@ -31,7 +31,7 @@ export default defineNuxtConfig({
       }
     },
     prerender: {
-      routes: ['/sitemap.xml', 'public/robots.txt']
+      routes: ['/sitemap.xml', '_robots.txt']
     },
     externals: {
       external: ['@prisma/client', '.prisma/client']

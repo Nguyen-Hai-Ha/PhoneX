@@ -14,7 +14,6 @@ export const productSchema = z.object({
     color: z.string(),
     image_url: z.string(),
     brand: z.string(),
-    stock: z.number(),
     status: z.enum(["ACTIVE", "OUT_OF_STOCK", "HIDDEN", "COMING_SOON"]),
     categoryId: z.coerce.number().int().positive(),
     tagIds: z.array(z.number()).optional().default([]),
