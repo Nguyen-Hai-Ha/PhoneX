@@ -40,10 +40,9 @@
           </form>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2026 PHONEX. All rights reserved.</p>
-      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 PHONEX. All rights reserved.</p>
     </div>
   </footer>
 </template>
@@ -51,9 +50,13 @@
 <style scoped>
 .footer {
   background-color: var(--secondary-color);
-  padding: 80px 0 40px;
+  padding-top: 80px 0 40px;
   margin-top: 80px;
   border-top: 1px solid var(--glass-border);
+}
+
+.footer-content{
+  padding-top: 40px;
 }
 
 .footer-grid {
@@ -69,17 +72,19 @@
   letter-spacing: 2px;
   margin-bottom: 20px;
   display: inline-block;
+  color: #d70018
 }
 
 .footer-desc {
   font-size: 0.9rem;
-  opacity: 0.7;
+  opacity: 0.9;
   max-width: 300px;
 }
 
 h3 {
   font-size: 1.1rem;
   margin-bottom: 25px;
+  color: #d70018
 }
 
 .footer-links ul li {
@@ -88,7 +93,7 @@ h3 {
 
 .footer-links ul li a {
   font-size: 0.9rem;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .footer-links ul li a:hover {
@@ -98,7 +103,7 @@ h3 {
 
 .footer-newsletter p {
   font-size: 0.9rem;
-  opacity: 0.7;
+  opacity: 0.9;
   margin-bottom: 20px;
 }
 
@@ -117,12 +122,12 @@ h3 {
 }
 
 .footer-bottom {
+  background-color: #bebebe;
   border-top: 1px solid var(--glass-border);
-  padding-top: 30px;
+  padding: 30px 0;
   display: flex;
   justify-content: center;
   font-size: 0.8rem;
-  opacity: 0.5;
 }
 
 @media (max-width: 1024px) {
