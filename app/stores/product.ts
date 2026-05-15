@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed, watch } from 'vue'
 
 export const useProductStore = defineStore('product', () => {
     const products = ref([])
     const loading = ref(false)
     const product = ref()
+    const relatedProducts = ref([])
 
     const fetchProducts = async () => {
         loading.value = true
@@ -34,6 +35,17 @@ export const useProductStore = defineStore('product', () => {
                     selectedColor.value = firstColorVariant.color
                 }
             }
+        } finally {
+            loading.value = false
+        }
+    }
+
+    const fetchRelatedProducts = async () => {
+        if (!product.value?.category?.id) return
+        loading.value = true
+        try {
+            const { data } = await useFetch(`/api/products/related?id=${product.value?.category?.id}&exclude=${product.value?.id}`)
+            relatedProducts.value = data.value?.data || []
         } finally {
             loading.value = false
         }
@@ -74,12 +86,14 @@ export const useProductStore = defineStore('product', () => {
         products,
         loading,
         product,
+        relatedProducts,
         storageOptions,
         selectedStorage,
         selectedColor,
         availableColors,
         currentVariant,
         fetchProducts,
-        fetchProduct
+        fetchProduct,
+        fetchRelatedProducts
     }
 })
