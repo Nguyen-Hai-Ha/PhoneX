@@ -394,6 +394,131 @@ useHead({
                     </div>
                 </div>
             </div>
+
+            <!-- Rating Product -->
+            <div class="cs-rating-section">
+                <div class="cs-rating-card">
+                    <h4 class="cs-rating-title">Đánh giá {{ product.name }}</h4>
+                    
+                    <div class="cs-rating-summary-grid">
+                        <!-- Score & Button -->
+                        <div class="cs-rating-score-block">
+                            <div class="score-main">
+                                <span class="score-num">4.5</span><span class="score-total">/5</span>
+                            </div>
+                            <div class="score-stars">
+                                ★★★★★
+                            </div>+
+                            <p class="score-count">2 lượt đánh giá</p>
+                            <button class="btn-write-review">Viết đánh giá</button>
+                        </div>
+
+                        <!-- Progress Bars -->
+                        <div class="cs-rating-bars-block">
+                            <div v-for="i in [5,4,3,2,1]" :key="i" class="rating-bar-item">
+                                <span class="bar-label">{{ i }} <p class="star-label">★</p> </span>
+                                <div class="bar-bg">
+                                    <div class="bar-fill" :style="{ width: i >= 4 ? (i === 5 ? '60%' : '40%') : '0%' }"></div>
+                                </div>
+                                <span class="bar-count">{{ i >= 4 ? '1' : '0' }} đánh giá</span>
+                            </div>
+                        </div>
+
+                        <!-- Experience Rating -->
+                        <!-- <div class="cs-experience-rating">
+                            <h5 class="exp-title">Đánh giá theo trải nghiệm</h5>
+                            <div class="exp-item">
+                                <span>Hiệu năng</span>
+                                <div class="exp-stars">
+                                    <span class="stars-active">★★★★★</span>
+                                    <span class="exp-score">4.5/5</span>
+                                    <span class="exp-count">(2 đánh giá)</span>
+                                </div>
+                            </div>
+                            <div class="exp-item">
+                                <span>Thời lượng pin</span>
+                                <div class="exp-stars">
+                                    <span class="stars-active">★★★★★</span>
+                                    <span class="exp-score">4.5/5</span>
+                                    <span class="exp-count">(2 đánh giá)</span>
+                                </div>
+                            </div>
+                            <div class="exp-item">
+                                <span>Chất lượng camera</span>
+                                <div class="exp-stars">
+                                    <span class="stars-active">★★★★★</span>
+                                    <span class="exp-score">4.5/5</span>
+                                    <span class="exp-count">(2 đánh giá)</span>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="cs-review-filters">
+                    <h5 class="filter-label">Lọc đánh giá theo</h5>
+                    <div class="filter-chips">
+                        <button class="chip active">Tất cả</button>
+                        <button class="chip">Có hình ảnh</button>
+                        <button class="chip">Đã mua hàng</button>
+                        <button class="chip">5 sao</button>
+                        <button class="chip">4 sao</button>
+                        <button class="chip">3 sao</button>
+                        <button class="chip">2 sao</button>
+                        <button class="chip">1 sao</button>
+                    </div>
+                </div>
+
+                <!-- Review List -->
+                <div class="cs-review-list">
+                    <div class="review-item">
+                        <div class="review-user">
+                            <div class="user-avatar">L</div>
+                            <span class="user-name">Lê Hoàng Phương</span>
+                        </div>
+                        <div class="review-content">
+                            <div class="content-header">
+                                <span class="stars">★★★★☆</span>
+                                <span class="sentiment">Tốt</span>
+                            </div>
+                            <div class="verified-badge">
+                                <Icon name="lucide:check-circle" /> Đã mua tại PhoneX
+                            </div>
+                            <!-- <div class="review-tags">
+                                <span class="tag">Hiệu năng Mạnh mẽ</span>
+                                <span class="tag">Thời lượng pin Khủng</span>
+                                <span class="tag">Chất lượng camera Chụp đẹp</span>
+                            </div> -->
+                            <p class="comment">mới mua nhưng mà cũng không mượt lắm</p>
+                            <span class="time">🕒 Đánh giá đã đăng vào 1 tháng trước</span>
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-user">
+                            <div class="user-avatar primary">T</div>
+                            <span class="user-name">Trần Thức Kiệt</span>
+                        </div>
+                        <div class="review-content">
+                            <div class="content-header">
+                                <span class="stars">★★★★★</span>
+                                <span class="sentiment">Tuyệt vời</span>
+                            </div>
+                            <div class="verified-badge">
+                                <Icon name="lucide:check-circle" /> Đã mua tại PhoneX
+                            </div>
+                            <!-- <div class="review-tags">
+                                <span class="tag">Hiệu năng Siêu mạnh mẽ</span>
+                                <span class="tag">Thời lượng pin Cực khủng</span>
+                                <span class="tag">Chất lượng camera Chụp đẹp, chuyên nghiệp</span>
+                            </div> -->
+                            <p class="comment">đẹp sản phẩm tốt</p>
+                            <span class="time">🕒 Đánh giá đã đăng vào 1 tháng trước</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
