@@ -673,6 +673,8 @@
 }
 
 .related-products-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
 }
 
@@ -718,7 +720,7 @@
 }
 
 .related-product-price {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #d70018;
 }
