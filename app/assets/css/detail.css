@@ -730,7 +730,10 @@
     margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 2px;
+    background-color: #f5f5f5;
+    padding: 18px;
+    border-radius: 12px;
 }
 
 .cs-rating-card {
@@ -783,7 +786,6 @@
 .score-stars {
     color: #ffd700;
     font-size: 1.25rem;
-    margin-bottom: 8px;
 }
 
 .score-count {

@@ -408,7 +408,7 @@ useHead({
                             </div>
                             <div class="score-stars">
                                 ★★★★★
-                            </div>+
+                            </div>
                             <p class="score-count">2 lượt đánh giá</p>
                             <button class="btn-write-review">Viết đánh giá</button>
                         </div>
