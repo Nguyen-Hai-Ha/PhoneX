@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { useProductStore } from '~/stores/product'
+import { useCartStore } from '~/stores/cart'
+import { storeToRefs } from '#imports'
+const cartStore = useCartStore()
+
 
 const route = useRoute()
 const slug = route.params.slug as string
@@ -7,12 +11,11 @@ const fullPath = route.params.slug
 
 const productStore = useProductStore()
 const { product, loading, storageOptions,
-    selectedStorage,
-    selectedColor,
-    availableColors,
-    currentVariant, } = storeToRefs(productStore)
+    selectedStorage, selectedColor, availableColors,
+    currentVariant, relatedProducts} = storeToRefs(productStore)
 
 await productStore.fetchProduct(slug)
+await productStore.fetchRelatedProducts()
 
 // Format price to VND
 const formatPrice = (price: number) => {
@@ -45,8 +48,6 @@ const scrollCarousel = (direction: 'left' | 'right') => {
 }
 
 // Cart functionality
-import { useCartStore } from '~/stores/cart'
-const cartStore = useCartStore()
 
 const handleAddToCart = () => {
     if (!product.value) return
@@ -377,6 +378,19 @@ useHead({
                         <button class="btn-add-cart" @click="handleAddToCart" aria-label="thêm vào giỏ">
                             <Icon name="mdi:cart" /> Thêm vào giỏ
                         </button>
+                    </div>
+
+                    <div v-if="relatedProducts && relatedProducts.length > 0" class="cs-related-products">
+                        <h4 class="related-products-title">Sản phẩm tương tự</h4>
+                        <div class="related-products-list">
+                            <NuxtLink v-for="p in relatedProducts" :key="p.id" :to="`/products/${p.slug}`" class="related-product-item">
+                                <NuxtImg :src="p.image_url" :alt="p.name" loading="lazy" format="webp" width="100" height="100"/>
+                                <div class="related-product-info">
+                                    <h5 class="related-product-name">{{ p.name }}</h5>
+                                    <p class="related-product-price">{{ formatPrice(p.variants?.[0]?.price || 0) }}</p>
+                                </div>
+                            </NuxtLink>
+                        </div>
                     </div>
                 </div>
             </div>
