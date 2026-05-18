@@ -1,15 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
-  srcDir: 'app/',
-  // vite: {
-  //   server: {
-  //     allowedHosts: ['localhost:3000']
-  //   }
-  // },
+  srcDir: 'app',
+//   vite: process.env.NODE_ENV === 'development' ? {
+//     server: {
+//       allowedHosts: ['hhpas.asia']
+//     }
+//   } : {},
   devtools: { enabled: true },
 
-  modules: ['nuxt-swiper', '@nuxtjs/robots', '@pinia/nuxt', '@nuxt/icon', '@nuxtjs/sitemap', '@nuxt/image' ],
+  modules: ['nuxt-swiper', '@pinia/nuxt', '@nuxt/icon', '@nuxtjs/sitemap', '@nuxt/image' ],
   css: ['~/assets/css/main.css'],
 
   swiper: {
@@ -23,15 +23,15 @@ export default defineNuxtConfig({
   serverDir: 'server',
 
   nitro: {
-    storage: {
-      redis: {
-        driver: 'redis',
-        host: 'localhost',
-        port: 6379
-      }
-    },
+    // storage: {
+    //   redis: {
+    //     driver: 'redis',
+    //     host: 'localhost',
+    //     port: 6379
+    //   }
+    // },
     prerender: {
-      routes: ['/sitemap.xml', '_robots.txt']
+      routes: ['/sitemap.xml']
     },
     externals: {
       external: ['@prisma/client', '.prisma/client']
@@ -42,12 +42,19 @@ export default defineNuxtConfig({
   },
   
   runtimeConfig: {
-    databaseUrl: process.env.DATABASE_URL
+    databaseUrl: process.env.DATABASE_URL,
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+    }
   },
-
+  
   routeRules: {
     '/images/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } },
-    // '/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } }
+    '/_nuxt/**': { headers: { 'Cache-Control': 'public, max-age=31536000, immutable' } }
+  },
+  
+  experimental: {
+    appManifest: false  
   },
 
   app: {
@@ -62,18 +69,19 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'preconnect', href: 'https://hhpas.asia' },
       ]
     }
   },
 
-  // sitemap: {
-  //   hostname: 'https://yourdomain.com',
-  //   urls: async () => {
-  //       const products = await $fetch('/api/products')
-  //       return products.data.map(p => ({
-  //           loc: `/products/${p.slug}`,
-  //           lastmod: p.updatedAt,
-  //       }))
-  //   }
-  // }
+  sitemap: {
+    hostname: 'https://hhpas.asia',
+    urls: async () => {
+        const products = await $fetch('/api/products')
+        return products.data.map(p => ({
+            loc: `/products/${p.slug}`,
+            lastmod: p.updatedAt,
+        }))
+    }
+  }
 })

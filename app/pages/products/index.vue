@@ -80,10 +80,10 @@ useSeoMeta({
 
                 <div class="filters">
                     <!-- Search Input -->
-                    <div class="search-box">
+                    <!-- <div class="search-box">
                         <Icon name="lucide:search" class="search-icon" />
                         <input v-model="search" type="text" placeholder="Tìm kiếm sản phẩm..." />
-                    </div>
+                    </div> -->
 
                     <!-- Filter & Sort Buttons -->
                     <div class="action-buttons">
