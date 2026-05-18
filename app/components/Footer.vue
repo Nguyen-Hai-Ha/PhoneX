@@ -123,8 +123,7 @@ h3 {
 
 .footer-bottom {
   background-color: #bebebe;
-  border-top: 1px solid var(--glass-border);
-  padding: 30px 0;
+  padding: 10px 0;
   display: flex;
   justify-content: center;
   font-size: 0.8rem;
