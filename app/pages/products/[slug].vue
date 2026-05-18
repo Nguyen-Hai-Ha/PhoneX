@@ -519,6 +519,72 @@ useHead({
                     </div>
                 </div>
             </div>
+
+            <!-- Q&A -->
+                <div class="cs-qa-section">
+                    <h4 class="cs-rating-title">Hỏi và đáp</h4>
+                    
+                    <div class="cs-qa-header-card">
+                        <div class="cs-qa-mascot">
+                            <!-- Placeholder for Mascot. In a real app, use the actual image URL -->
+                            <Icon name="fluent-emoji:robot" class="mascot-icon" />
+                        </div>
+                        <div class="cs-qa-input-area">
+                            <h5 class="qa-input-title">Hãy đặt câu hỏi cho chúng tôi</h5>
+                            <p class="qa-input-desc">PhoneX sẽ phản hồi trong vòng 1 giờ. Nếu Quý khách gửi câu hỏi sau 22h, chúng tôi sẽ trả lời vào sáng hôm sau. Thông tin có thể thay đổi theo thời gian, vui lòng đặt câu hỏi để nhận được cập nhật mới nhất!</p>
+                            <div class="qa-input-group">
+                                <input type="text" placeholder="Viết câu hỏi của bạn tại đây" class="qa-input" />
+                                <button class="btn-send-question">
+                                    Gửi câu hỏi <Icon name="lucide:send" class="icon-send" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cs-qa-list">
+                        <!-- Q&A Thread 1 -->
+                        <div class="qa-thread">
+                            <!-- Question -->
+                            <div class="qa-question">
+                                <div class="review-user">
+                                    <div class="user-avatar" style="background: #1e8b74">D</div>
+                                    <span class="user-name">Dũng Lê</span>
+                                    <span class="time">🕒 2 tuần trước</span>
+                                </div>
+                                <div class="qa-content">
+                                    <p class="comment">Làm sao để biết máy cũ đã thay thế sửa chữa linh kiện gì ạ</p>
+                                    <div class="qa-actions">
+                                        <button class="btn-reply"><Icon name="lucide:message-square" /> Phản hồi</button>
+                                        <button class="btn-collapse">Thu gọn phản hồi ∧</button>
+                                    </div>
+                                </div>
+                                <!-- Answer -->
+                                <div class="qa-answer">
+                                    <div class="review-user">
+                                        <div class="user-avatar admin">P</div>
+                                        <span class="user-name">Quản Trị Viên <span class="admin-badge">QTV</span></span>
+                                        <span class="time">🕒 2 tuần trước</span>
+                                    </div>
+                                    <div class="qa-content">
+                                        <div class="comment">
+                                            Xin chào Anh Dũng ạ!<br/>
+                                            Dạ mình đến mua hàng bạn nhân viên sẽ báo mình chính xác nhé<br/>
+                                            APPLE IPHONE 15 PLUS 128GB HỒNG CŨ - ĐẸP giá giảm hiện tại 15.790.000<br/>
+                                            Hiện sản phẩm còn hàng tại chi nhánh 369 Nguyễn Văn Linh, Thạc Gián, Thanh Khê, TP Đà Nẵng<br/>
+                                            *****468 Dạ do sản phẩm còn ít và giá có thể thay đổi nên em xin giữ hàng giữ giá qua SĐT này trong 24h để mình tiện tham khảo được không ạ<br/>
+                                            Sản phẩm thu lại từ khách hàng không còn nhu cầu (Một số sản phẩm có thể đã qua bảo hành hãng hoặc sửa chữa thay thế linh kiện, hiệu suất pin không bằng hàng mới), nguồn gốc rõ ràng, xuất hoá đơn eVAT ạ<br/>
+                                            Thân mến!
+                                        </div>
+                                        <div class="qa-actions">
+                                            <button class="btn-reply"><Icon name="lucide:message-square" /> Phản hồi</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 </template>
