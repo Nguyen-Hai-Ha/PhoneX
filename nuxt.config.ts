@@ -77,11 +77,16 @@ export default defineNuxtConfig({
   sitemap: {
     hostname: 'https://hhpas.asia',
     urls: async () => {
-        const products = await $fetch('/api/products')
-        return products.data.map(p => ({
-            loc: `/products/${p.slug}`,
-            lastmod: p.updatedAt,
-        }))
+        try {
+          const products = await $fetch('/api/products')
+          return products.data.map(p => ({
+              loc: `/products/${p.slug}`,
+              lastmod: p.updatedAt,
+          }))
+        } catch (error) {
+          console.warn('Unable to load products for sitemap generation, using an empty list.', error)
+          return []
+        }
     }
   }
 })
